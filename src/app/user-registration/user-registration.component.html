@@ -1,0 +1,37 @@
+<form #form="ngForm" (submit)="onSubmit(form)"
+
+[class.submitted]="service.formSubmitted" novalidate autocomplete="off">
+
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="dispay-6 fw-bold">User Registration</h1>
+  </div>
+  <div class="mb-3 " >
+    <input type="hidden" name="user_Id" >
+    
+    <label>User Name</label>
+    <input class="form-control form-control-lg" placeholder="Name on user" 
+     #userName="ngModel" name="userName"
+      [(ngModel)]="service.formData.userName" required>
+  </div> 
+  <div class="mb-3">
+    <label>Phone Number</label>
+    <input class="form-control form-control-lg" placeholder="10 Digit Phone number" 
+     name="phNumber"  minlength="1" maxlength="10"  #phoneNumber="ngModel" name="phoneNumber"
+     [(ngModel)]="service.formData.phoneNumber" required>
+  </div> 
+  <div class="mb-3 ">
+    <label>Email Address</label>
+    <input class="form-control form-control-lg" placeholder="email"  name="securityCode"
+    #userMail="ngModel" name="userMail"
+    [(ngModel)]="service.formData.userMail" required>
+  </div> 
+  <div class="mb-3 ">
+    <label>Registration date</label>
+    <input class="form-control form-control-lg" placeholder="DD/MM/YY"  name="regDate"
+    #reg_date="ngModel" name="reg_date"
+      [(ngModel)]="service.formData.reg_date" required>
+  </div> 
+  <div class="d-grid">
+    <button class="btn btn-lg btn-success" type="submit">Register</button>
+  </div>
+</form>
